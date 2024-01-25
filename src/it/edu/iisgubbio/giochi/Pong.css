@@ -1,0 +1,33 @@
+#sfondo{
+	-fx-background-color : black;
+}
+.label{
+	-fx-font: italic bolder 16pt "Arial Black";
+	-fx-alignment:center ;
+	
+}
+.radio_button{
+	-fx-font: italic bolder 16pt "Arial Black";
+	-fx-alignment:center ;
+	
+}
+.button{
+	-fx-font: italic bolder 16pt "Arial Black";
+	-fx-background-color : black;
+	-fx-text-fill: #FFFFFF;
+	-fx-hgap:10;
+	-fx-vgap:10;
+}
+#Circle{
+	-fx-fill: #FF7F50;
+}
+#RecPlayer{
+	-fx-fill: #FFFFFF;
+}
+#RecEnemy{
+	-fx-fill: #FFFFFF;
+}
+#GPane{
+	-fx-hgap:15;
+	-fx-vgap:15;
+}

@@ -1,0 +1,13 @@
+.label{
+	-fx-font-family:Times New Roman;
+	-fx-font-size: 20px;
+}
+.button{
+	-fx-font-family:Times New Roman;
+	-fx-font-size: 20px;
+}
+#grid-spazio{
+	-fx-hgap:10px;
+	-fx-vgap:10px;
+	-fx-padding:8px 8px 8px 8px;
+}

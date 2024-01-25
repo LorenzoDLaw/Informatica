@@ -1,0 +1,12 @@
+#nHamburger{
+	-fx-text-fill: Red;
+}
+#nPatatine{
+	-fx-text-fill: Red;
+}
+.text-field{
+	-fx-background-color : pink;
+}
+#sfondo{
+	-fx-background-color : yellow;
+}

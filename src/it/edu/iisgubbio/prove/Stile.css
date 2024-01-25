@@ -1,0 +1,13 @@
+
+.text-field{
+	-fx-background-color : red;
+}
+#perimetro{
+	-fx-font-family:Times New Roman;
+	-fx-text-fill: blue;
+}
+#grid-spazio{
+	-fx-hgap:10px;
+	-fx-vgap:10px;
+	-fx-padding:5px 5px 5px 5px;
+}
