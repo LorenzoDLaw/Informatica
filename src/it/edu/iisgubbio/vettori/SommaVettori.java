@@ -78,27 +78,6 @@ public class SommaVettori extends Application {
 			   }
 		   }
 	   }
-		   
-		   
-		   
-		   
-		   /*for (int pos=1; pos<numeri.length; pos++) {
-			   if (cresce==true) {
-				   if(numeri[pos-1]>numeri[pos]) {
-					   cresce = false;
-					   pos=1;
-				   }else {
-					   
-				   }
-			   }
-			   if (cresce==false) {
-				   lCrescente.setText("Decrescente");
-				   if(numeri[pos-1]<numeri[pos]){
-					   lCrescente.setText("casuali");
-					   pos=numeri.length;
-				   } 	  
-			   }
-		   }*/
 	    
 	   
 	   public static void main(String[] args) {
