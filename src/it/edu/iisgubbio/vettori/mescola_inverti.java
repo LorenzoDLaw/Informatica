@@ -64,13 +64,6 @@ public class mescola_inverti extends Application{
 	}
 		
 	public void mescola(int[] vettore) {
-		    Random random = new Random();
-		    for (int i = vettore.length - 1; i > 0; i--) {
-		        int j = random.nextInt(i + 1);
-		        int temp = vettore[i];
-		        vettore[i] = vettore[j];
-		        vettore[j] = temp;
-		    }
 
 		/*lMescola.setText("");
 		String numeriTxt = tNumeri.getText();
