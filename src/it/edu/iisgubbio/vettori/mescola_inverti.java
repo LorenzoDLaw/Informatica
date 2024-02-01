@@ -43,7 +43,7 @@ public class mescola_inverti extends Application{
 	}
 	public void inverti() {
 		String numeriTxt = tNumeri.getText();
-		int invertiVettore[];
+		int dep=0;
 		if(numeriTxt.equals("")) {
 			lInverti.setText("inserisci i numeri");
 		}else {
@@ -52,32 +52,51 @@ public class mescola_inverti extends Application{
 			for(int indice = 0; indice < parti.length; indice++) {
 				numeri[indice] = Integer.parseInt(parti[indice]);
 		    }
-			invertiVettore= new int [numeri.length];
-			for(int indice = parti.length-1, pos=0; indice >= 0; indice--, pos++) {
-				invertiVettore[pos] = numeri[indice];
-				lInverti.setText(lInverti.getText()+" "+invertiVettore[pos]);
+			for(int i=0; i< numeri.length/2; i++) {
+				dep=numeri[i];
+				numeri[i]=numeri[numeri.length-1-i];
+				numeri[numeri.length-1-i]=dep;
+		    }
+			for(int i=0; i< numeri.length; i++) {
+				lInverti.setText(lInverti.getText()+" "+numeri[i]);
 		    }
 		}
 	}
-	public void mescola() {
+		
+	public void mescola(int[] vettore) {
+		    Random random = new Random();
+		    for (int i = vettore.length - 1; i > 0; i--) {
+		        int j = random.nextInt(i + 1);
+		        int temp = vettore[i];
+		        vettore[i] = vettore[j];
+		        vettore[j] = temp;
+		    }
+
+		/*lMescola.setText("");
 		String numeriTxt = tNumeri.getText();
-		int mescolaVettore[];
+		int vettoreCasuale [];
 		if(numeriTxt.equals("")) {
 			lInverti.setText("inserisci i numeri");
 		}else {
 			parti =numeriTxt.split(" ");
 			numeri = new int [parti.length];
+			vettoreCasuale = new int [parti.length];
+			int posMescola;
 			for(int indice = 0; indice < parti.length; indice++) {
 				numeri[indice] = Integer.parseInt(parti[indice]);
 		    }
-			mescolaVettore= new int [numeri.length];
-			for(int indice = 0, pos=0; indice<=numeri.length; indice++, pos++) {
-				int numero = (int) ((Math.random()*numeri.length)+1); 
-				
-				mescolaVettore[pos] = numeri[numero];
-				lInverti.setText(lInverti.getText()+" "+mescolaVettore[pos]);
-		    }
-		}
+			for(int pos=0; pos<numeri.length; pos++) {
+				posMescola = (int) ((Math.random()*numeri.length));
+				if(vettoreCasuale[posMescola]==0){
+					posMescola = (int) ((Math.random()*numeri.length));
+					vettoreCasuale[posMescola]=numeri[pos];	
+				}
+				vettoreCasuale[posMescola]=numeri[pos];	
+			}
+			for(int i=0;i<numeri.length;i++) {
+				lMescola.setText(lMescola.getText()+" "+vettoreCasuale[i]);
+			}
+		}*/
 	}
 			
 	public static void main(String args[]){
