@@ -1,5 +1,7 @@
 package it.edu.iisgubbio.vettori;
 
+import java.awt.ContainerOrderFocusTraversalPolicy;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -9,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class mescola_inverti extends Application{
+public class mescola_inverti_Buono extends Application{
 	TextField tNumeri = new TextField();	
 	Label lInverti = new Label("");
 	Label lMescola = new Label("");
@@ -95,7 +97,6 @@ public class mescola_inverti extends Application{
 		String parti[];
 		parti =numeriTxt.split(" ");
 		numeri = new int [parti.length];
-		
 		for(int indice = 0; indice < parti.length; indice++) {
 			numeri[indice] = Integer.parseInt(parti[indice]);
 		   }
@@ -103,19 +104,35 @@ public class mescola_inverti extends Application{
 		int contatore =0;
 		int nv=-1;
 		for(int pos=0; pos<numeri.length; pos++) {
+			boolean ripetuti=false;
 			for (int i = pos+1;i<numeri.length;i++) {
 				if (numeri[pos]==numeri[i]){
-					numeri[i]=nv--;
+					ripetuti=true;
 					contatore++;
 				}
 			}
 		}
-		
-		for(int i=0;i<numeri.length;i++) {
-			if (numeri[i]>=0) {
-				lDuplicati.setText(lDuplicati.getText()+" "+numeri[i]);
+		//1 2 3 3 5 7 2
+		int numeriDup[]=new int [numeri.length-contatore];
+		int contatoreDup=0;
+		boolean ripetuti;
+		for (int pos=0; pos<numeri.length;pos++) {
+			ripetuti=false;
+			for(int posCont=pos+1; posCont<numeri.length; posCont++) {
+				if (numeri[pos]==numeri[posCont]){
+					ripetuti=true;
+				}
 			}
+			if(ripetuti==false) {
+				numeriDup[contatoreDup]=numeri[pos];
+				contatoreDup++;
+			}
+			
 		}
+		
+		for(int i=0;i<numeriDup.length;i++) {
+				lDuplicati.setText(lDuplicati.getText()+" "+numeriDup[i]);
+			}
 		lDuplicati.setText(lDuplicati.getText()+". I numeri doppi sono "+ contatore);
 	}
 		

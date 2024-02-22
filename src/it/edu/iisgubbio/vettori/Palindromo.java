@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 public class Palindromo extends Application{
 	TextField tParola = new TextField();	
 	Label lInverti = new Label("");
-	String parti[];
 	int frase[];
 	public void start(Stage finestra) {
 		GridPane griglia = new GridPane();
@@ -38,16 +37,20 @@ public class Palindromo extends Application{
 	public void inverti() {
 		String StrNome = tParola.getText().toLowerCase();
 		char nome[]=StrNome.toCharArray();
+		boolean palindromo;
+		int lunghezza= nome.length-1;
 		if(nome.equals("")) {
 			lInverti.setText("inserisci i numeri");
 		}else {
-			for(int i=0; i< nome.length/2; i++) {
-				char mem= nome[i];
-				nome[i]=nome[nome.length-1-i];
-				nome[nome.length-1-i]=mem;
+			for(int i=0; i< lunghezza/2; i++) {
+				if(nome[i]==nome[lunghezza-i]) {
+					palindromo=false;
+				}else {
+					palindromo=true;
+				}
 		    }
 		}
-		if (nome.equals(tParola)) {
+		if (palindromo=true) {
 			lInverti.setText("sì");
 		}else {
 			lInverti.setText("no");
