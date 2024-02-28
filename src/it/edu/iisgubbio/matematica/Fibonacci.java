@@ -9,11 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class Fattoriale extends Application{
+public class Fibonacci extends Application{
 	
 	TextField tNumero = new TextField("");
-	Label lFattoriale = new Label("");
-	Button bFattoriale = new Button("!");
+	Label lFibonacci = new Label("");
+	Button bCalcolaFibonacci = new Button("Calcoal");
 
 	
 	public void start(Stage finestra) {
@@ -26,24 +26,35 @@ public class Fattoriale extends Application{
 		
 		
 		griglia.add(tNumero, 0, 0);
-		griglia.add(bFattoriale, 1, 0);
-		griglia.add(lFattoriale, 2, 0);	
+		griglia.add(bCalcolaFibonacci, 1, 0);
+		griglia.add(lFibonacci, 2, 0);	
 		Scene scena = new Scene(griglia,300,50);
 	    finestra.setTitle("Fattoriale!");
 	    finestra.setScene(scena);
 	    finestra.show();
 	    scena.getStylesheets().add("it/edu/iisgubbio/matematica/tabelline.css");
 		
-	    bFattoriale.setOnAction(e -> calcolanPrimi());		
+	    bCalcolaFibonacci.setOnAction(e -> calcolafattoriale());		
+	}
+	int fibonacci(int numero) {
+		int fatt=0;
+		if (numero == 0) {
+			fatt=0;
+		}else if (numero==1){
+			fatt=1;
+		}else {
+			if (numero>1) {
+				fatt = fibonacci(numero-1)+fibonacci(numero-2);
+			}
+		}
+		return fatt;
 	}
 	
-	public void calcolanPrimi() {
-		int valore = Integer.parseInt(tNumero.getText());
-		int fatt = 1;
-		for( int contatore = 2; contatore<=valore;contatore++) {
-			fatt = fatt*contatore;
-		}
-		lFattoriale.setText("="+fatt);
+	public void calcolafattoriale() {
+		int numero = Integer.parseInt(tNumero.getText());
+		int risultato;
+		risultato = fibonacci(numero);
+		lFibonacci.setText(""+risultato);
 	}		
 	
 	public static void main(String[] args) {
