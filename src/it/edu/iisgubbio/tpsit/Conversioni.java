@@ -13,9 +13,9 @@ import javafx.stage.Stage;
 public class Conversioni extends Application {
 	TextField tBase = new TextField();
 	TextField tNumero = new TextField();
-	Label lNumBin = new Label("");
+	Label lNumConvertito = new Label("");
 	Hashtable<Integer,String> my_dict = new Hashtable<Integer,String>();
-	
+	Hashtable<Character,Integer> dict_decimale = new Hashtable<Character,Integer>();
 	   public void start(Stage primaryStage) {
 		   my_dict.put(1,"1");
 		   my_dict.put(2,"2");
@@ -32,6 +32,23 @@ public class Conversioni extends Application {
 		   my_dict.put(13,"D");
 		   my_dict.put(14,"E");
 		   my_dict.put(15,"F");
+
+		   dict_decimale.put('0',0);
+		   dict_decimale.put('1',1);
+		   dict_decimale.put('2',2);
+		   dict_decimale.put('3',3);
+		   dict_decimale.put('4',4);
+		   dict_decimale.put('5',5);
+		   dict_decimale.put('6',6);
+		   dict_decimale.put('7',7);
+		   dict_decimale.put('8',8);
+		   dict_decimale.put('9',9);
+		   dict_decimale.put('A',10);
+		   dict_decimale.put('B',11);
+		   dict_decimale.put('C',12);
+		   dict_decimale.put('D',13);
+		   dict_decimale.put('E',14);
+		   dict_decimale.put('F',15);		   
 		   
 		  GridPane griglia = new GridPane();
 	      griglia.setPadding(new Insets(5, 5, 5, 5));
@@ -46,20 +63,23 @@ public class Conversioni extends Application {
 		  Label lNum = new Label("inserisci il numero");
 		  Label lBase = new Label("base");
 		  Button bCalcola = new Button("calcola");
+		  Button bDecimelae = new Button("Converti in decimale");
 		  
 		  griglia.add(lConversioni, 0, 0,2,1);
 		  griglia.add(lNum, 0, 1);
 		  griglia.add(tNumero, 1, 1);
 		  griglia.add(lBase, 0, 2);
 		  griglia.add(tBase, 1, 2);
-		  griglia.add(lNumBin, 0, 3,2,1);
-		  griglia.add(bCalcola, 0, 4,2,1);
+		  griglia.add(lNumConvertito, 0, 3,2,1);
+		  griglia.add(bCalcola, 0, 4);
+		  griglia.add(bDecimelae, 1, 4);
 		  
 		  bCalcola.setOnAction(e -> controlla());
+		  bDecimelae.setOnAction(e -> convertiInDecimale());
 	   }
 
 	   public void controlla() {
-		   lNumBin.setText("");
+		   lNumConvertito.setText("");
 		   String vetCodifica[]= new String [8];
 		   int numero =Integer.parseInt(tNumero.getText());
 		   int base = Integer.parseInt(tBase.getText());
@@ -73,9 +93,24 @@ public class Conversioni extends Application {
 			   numero=numero/base;
 		   }
 		   for (int i=0; i<vetCodifica.length;i++ ) {
-			   lNumBin.setText(lNumBin.getText()+vetCodifica[i]);
+			   lNumConvertito.setText(lNumConvertito.getText()+vetCodifica[i]);
 		   }
 		   		
+	   }
+	   
+	   public void convertiInDecimale() {
+		   lNumConvertito.setText("");
+		   char vetCharNumeri[] = tNumero.getText().toCharArray();
+		   int vetIntNumeri []= new int [vetCharNumeri.length];
+		   for (int i=0;i<vetIntNumeri.length;i++) {
+			   vetIntNumeri[i]=dict_decimale.get(vetCharNumeri[i]);
+		   }
+		   int base = Integer.parseInt(tBase.getText());
+		   int numDecimale=0;
+		   for (int i=vetIntNumeri.length;i>vetIntNumeri.length;i--) {
+			   numDecimale += vetIntNumeri[1]*Math.pow(base, i) ;
+		   }
+		   lNumConvertito.setText(""+numDecimale);
 	   }
 		   
 	   public static void main(String[] args) {
