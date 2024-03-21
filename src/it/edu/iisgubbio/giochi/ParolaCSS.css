@@ -1,0 +1,9 @@
+.label{
+	-fx-border-color:black;
+	-fx-border-width:5px;
+	-fx-alignment: CENTER;
+}
+#labelTrovata{
+	-fx-background-color: rgb(0, 255, 0);
+	-fx-text-fill: black;	
+}

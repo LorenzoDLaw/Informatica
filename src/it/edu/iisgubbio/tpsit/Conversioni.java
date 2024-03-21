@@ -75,6 +75,7 @@ public class Conversioni extends Application {
 		  griglia.add(bDecimelae, 1, 4);
 		  
 		  bCalcola.setOnAction(e -> controlla());
+
 		  bDecimelae.setOnAction(e -> convertiInDecimale());
 	   }
 
@@ -107,8 +108,9 @@ public class Conversioni extends Application {
 		   }
 		   int base = Integer.parseInt(tBase.getText());
 		   int numDecimale=0;
-		   for (int i=vetIntNumeri.length;i>vetIntNumeri.length;i--) {
-			   numDecimale += vetIntNumeri[1]*Math.pow(base, i) ;
+		   
+		   for (int i=vetIntNumeri.length-1, pos=0;i>=0;i--,pos++) {
+			   numDecimale += vetIntNumeri[pos]*Math.pow(base, i) ;
 		   }
 		   lNumConvertito.setText(""+numDecimale);
 	   }
