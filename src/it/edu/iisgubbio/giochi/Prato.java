@@ -29,7 +29,7 @@ public class Prato extends Application{
 			if(bomba==true) {
 				if (nBombe>0) {
 					bombe[iH][iL]=true;
-					bCasella.setId("Button");
+					//bCasella.setId("Button");
 					nBombe--;
 				}
 			}
@@ -57,7 +57,9 @@ public class Prato extends Application{
 		  a.setText("boom");
 		  lESito.setText("hai perso");
 	  } else {
+		  //effettuo un controllo sua quale colonna mi trovo
 		  if(colonna==prefColonna-1) {
+			  //controllo se mi trovo sull'ultima riga
 			  if(riga==prefRiga-1) {
 				  for (int iColonna =colonna-1; iColonna <= colonna; iColonna++) {
 					  for (int iRiga =riga - 1; iRiga <= riga; iRiga++) {
@@ -67,6 +69,7 @@ public class Prato extends Application{
 					  }
 				  }
 			  }
+			  //controllo se mi trovo sulla prima riga
 			  if(riga==0) {
 				  for (int iColonna =colonna-1; iColonna <= colonna; iColonna++) {
 					  for (int iRiga =riga; iRiga <= riga+1; iRiga++) {
@@ -76,7 +79,8 @@ public class Prato extends Application{
 					  }
 				  }
 			  }
-			  if(riga!=0&&riga!=prefRiga){
+			  //calcolo se mi trovo sull'ultima colonna e sulle righe centrali
+			  if(riga!=0&&riga!=prefRiga-1){
 				  for (int iColonna =colonna-1; iColonna <= colonna; iColonna++) {
 					  for (int iRiga =riga - 1; iRiga <= riga+1; iRiga++) {
 						  if(bombe[iColonna][iRiga]==true) {
@@ -86,7 +90,9 @@ public class Prato extends Application{
 				  }
 			  }
 		  }
+		  //controllo se mi trovo sulla prima colonna
 		  if(colonna==0) {
+			//controllo se mi trovo sull'ultima riga dell'prima colonna
 			  if(riga==prefRiga-1) {
 				  for (int iColonna =colonna; iColonna <= colonna+1; iColonna++) {
 					  for (int iRiga =riga - 1; iRiga <= riga; iRiga++) {
@@ -95,7 +101,9 @@ public class Prato extends Application{
 						  }
 					  }
 				  }
-			  }if(riga==0) {
+			  }
+			//controllo se mi trovo sulla prima riga dell'prima colonna
+			  if(riga==0) {
 				  for (int iColonna =colonna; iColonna <= colonna+1; iColonna++) {
 					  for (int iRiga =riga; iRiga <= riga+1; iRiga++) {
 						  if(bombe[iColonna][iRiga]==true) {
@@ -104,7 +112,8 @@ public class Prato extends Application{
 					  }
 				  }
 			  }
-			  if(riga!=0&&riga!=prefRiga){
+			  //prima colonna righe centrali
+			  if(riga!=0&&riga!=prefRiga-1){
 				  for (int iColonna =colonna; iColonna <= colonna+1; iColonna++) {
 					  for (int iRiga =riga - 1; iRiga <= riga+1; iRiga++) {
 						  if(bombe[iColonna][iRiga]==true) {
@@ -114,7 +123,9 @@ public class Prato extends Application{
 				  }
 			  }
 		  }
+		  //se non mi trovo sull'ultima o la prima colonna controllo la posizione delle righe
 		  if(colonna!=prefColonna-1&&colonna!=0){
+			  // calcolo se mi trovo sull'ultima riga
 			  if(riga==prefRiga-1) {
 				  for (int iColonna =colonna-1; iColonna <= colonna+1; iColonna++) {
 					  for (int iRiga =riga - 1; iRiga <= riga; iRiga++) {
@@ -124,6 +135,7 @@ public class Prato extends Application{
 					  }
 				  }
 			  }
+			  //calcolo se mi trovo sulla prima riga
 			  if(riga==0) {
 				  for (int iColonna =colonna-1; iColonna <= colonna+1; iColonna++) {
 					  for (int iRiga =riga; iRiga <= riga+1; iRiga++) {
@@ -133,7 +145,8 @@ public class Prato extends Application{
 					  }
 				  }
 			  }
-			  if(riga!=0&&riga!=prefRiga) {
+			  //mi trovo al centro del campo
+			  if(riga!=0&&riga!=prefRiga-1) {
 				  for (int iH =colonna-1; iH <= colonna+1; iH++) {
 					  for (int iL =riga - 1; iL <= riga+1; iL++) {
 						  if(bombe[iH][iL]==true) {
@@ -141,11 +154,96 @@ public class Prato extends Application{
 						  }
 					  }
 				  } 
-			  }
-			  
+			  }  
 		  }
 	       	a.setText("" + quantitàBombe);
+	       	if(quantitàBombe==0) {
+	       		if(colonna==prefColonna-1) {
+	  			  //controllo se mi trovo sull'ultima riga
+	  			  if(riga==prefRiga-1) {
+	  				  for (int iColonna =colonna-1; iColonna <= colonna; iColonna++) {
+	  					  for (int iRiga =riga - 1; iRiga <= riga; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  			  //controllo se mi trovo sulla prima riga
+	  			  if(riga==0) {
+	  				  for (int iColonna =colonna-1; iColonna <= colonna; iColonna++) {
+	  					  for (int iRiga =riga; iRiga <= riga+1; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  			  //calcolo se mi trovo sull'ultima colonna e sulle righe centrali
+	  			  if(riga!=0&&riga!=prefRiga-1){
+	  				  for (int iColonna =colonna-1; iColonna <= colonna; iColonna++) {
+	  					  for (int iRiga =riga - 1; iRiga <= riga+1; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  		  }
+	  		  //controllo se mi trovo sulla prima colonna
+	  		  if(colonna==0) {
+	  			//controllo se mi trovo sull'ultima riga dell'prima colonna
+	  			  if(riga==prefRiga-1) {
+	  				  for (int iColonna =colonna; iColonna <= colonna+1; iColonna++) {
+	  					  for (int iRiga =riga - 1; iRiga <= riga; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  			//controllo se mi trovo sulla prima riga dell'prima colonna
+	  			  if(riga==0) {
+	  				  for (int iColonna =colonna; iColonna <= colonna+1; iColonna++) {
+	  					  for (int iRiga =riga; iRiga <= riga+1; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  			  //prima colonna righe centrali
+	  			  if(riga!=0&&riga!=prefRiga-1){
+	  				  for (int iColonna =colonna; iColonna <= colonna+1; iColonna++) {
+	  					  for (int iRiga =riga - 1; iRiga <= riga+1; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  		  }
+	  		  //se non mi trovo sull'ultima o la prima colonna controllo la posizione delle righe
+	  		  if(colonna!=prefColonna-1&&colonna!=0){
+	  			  // calcolo se mi trovo sull'ultima riga
+	  			  if(riga==prefRiga-1) {
+	  				  for (int iColonna =colonna-1; iColonna <= colonna+1; iColonna++) {
+	  					  for (int iRiga =riga - 1; iRiga <= riga; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  			  //calcolo se mi trovo sulla prima riga
+	  			  if(riga==0) {
+	  				  for (int iColonna =colonna-1; iColonna <= colonna+1; iColonna++) {
+	  					  for (int iRiga =riga; iRiga <= riga+1; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  }
+	  			  }
+	  			  //mi trovo al centro del campo
+	  			  if(riga!=0&&riga!=prefRiga-1) {
+	  				  for (int iColonna =colonna-1; iColonna <= colonna+1; iColonna++) {
+	  					  for (int iRiga =riga - 1; iRiga <= riga+1; iRiga++) {
+	  						contrOtherButt(iColonna, iRiga);
+	  					  }
+	  				  } 
+	  			  }  
+	  		  }
+	       		
+	       	}
 	    }
+  }
+  public void contrOtherButt(int colonna ,int riga) {
+	  
   }
   public static void main(String args[]){
     launch();

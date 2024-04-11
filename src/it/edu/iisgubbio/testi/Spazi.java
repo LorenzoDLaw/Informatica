@@ -45,9 +45,9 @@ public class Spazi extends Application{
 	}
 	public void TrasformaFont() {
 	    tSpazi.setText(tTesto.getText());
-	    //Font monospace = new Font("Courier New", 10); // Specify Font.PLAIN for style
-	    //tSpazi.setFont(monospace);
-	    //tTesto.setFont(monospace);
+	    Font monospace = new Font("Courier New", 10); // Specify Font.PLAIN for style
+	    tSpazi.setFont(monospace);
+	    tTesto.setFont(monospace);
 	    // aggiungo gli spazi
 	    //123 45 6 78 90
 	    char spazi[]= new char [20];
@@ -84,11 +84,12 @@ public class Spazi extends Application{
 		    String k = new String (spazi);
 		    tSpazi.setText(k); 
 	    	}
-	    }else {
+	    else {
 	    	for (int i=0;i<20;i++) {
 	    		tSpazi.setText(tSpazi.getText()+spazi[i]); 
 	    	}
 	    }
+	}
 	   
 			
 	public static void main(String args[]){

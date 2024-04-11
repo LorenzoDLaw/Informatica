@@ -36,29 +36,26 @@ public class CompressioneImmagine extends Application{
     primaryStage.setScene(scene);
     primaryStage.show();
     //scene.getStylesheets().add("it/edu/iisgubbio/giochi/ParolaCSS.css");
-    
-    bCalcola.setOnAction(e -> comprimi(char[][] lettere));
+    bCalcola.setOnAction(e -> comprimi());
   }
-  public void comprimi(char[][] lettere){
+  public void comprimi(){
 	  StringBuilder result = new StringBuilder();
-      int rowCount = lettere.length;
-      int colCount = lettere[0].length;
+      int rowCount = riga;
+      int colCount = colonna;
 
-      for (int i = 0; i < rowCount; i++) {
+      for (int iColonna = 0; iColonna < colonna; iColonna++) {
           int count = 1;
           for (int j = 1; j < colCount; j++) {
-              if (lettere[i][j] == lettere[i][j - 1]) {
+              if (lettere[iColonna][j] == lettere[iColonna][j - 1]) {
                   count++;
               } else {
-                  result.append(lettere[i][j - 1]).append(count);
+                  result.append(lettere[iColonna][j - 1]).append(count);
                   count = 1;
               }
           }
-          result.append(lettere[i][colCount - 1]).append(count);
+          result.append(lettere[iColonna][colCount - 1]).append(count);
           result.append("\n");
       }
-
-      return result.toString();
   }
   
   public static void main(String args[]){
