@@ -6,7 +6,9 @@ public class Automobile extends Terrestre {
 	
 	public Automobile(String nome, double costo, int numeroPorte) {
 		super();
-		this.nome = nome;
+		setNome(nome);
+		setCosto(costo);
+		setRumorosita(78);
 		this.numeroPorte = numeroPorte;
 	}
 	

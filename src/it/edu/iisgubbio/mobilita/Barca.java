@@ -12,7 +12,7 @@ public class Barca extends AMuscoli{
 
 	@Override
 	public String toString() {
-		return "Barca " + nome + ", singoloRemo=" + singoloRemo + "]";
+		return "Barca " + nome + ", [singoloRemo=" + singoloRemo + "]";
 	}
 	
 	public boolean getSingoloRemo() {
@@ -23,6 +23,12 @@ public class Barca extends AMuscoli{
 		return numeroDiRemi;	
 	}
 	public int numeroVogatori() {
-		return numeroDiRemi;
+		int n;
+		if(singoloRemo) {
+			n=numeroDiRemi;
+		}else {
+			n=numeroDiRemi/2;
+		}
+		return n;
 	}
 }

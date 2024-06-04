@@ -5,14 +5,14 @@ public class Skateboard extends AMuscoli{
 	private int lughezza () {
 		return lunghezza;
 	}
-	public Skateboard (String nome, double costo, String muscoliCoinvolti) {
-		super(nome, costo, muscoliCoinvolti);
+	public Skateboard (String nome, double costo) {
+		super(nome, costo, "quadricipiti");
 		this.costo = costo;
 		this.nome = nome;
 	}
 	
-	public Skateboard (String nome, double costo, String muscoliCoinvolti, int lunghezza) {
-		super(nome, costo, muscoliCoinvolti);
+	public Skateboard (String nome, double costo, int lunghezza) {
+		super(nome, costo, "quadricipiti");
 		this.lunghezza= lunghezza;
 	}
 	@Override

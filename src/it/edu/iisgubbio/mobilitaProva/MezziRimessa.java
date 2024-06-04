@@ -2,12 +2,16 @@ package it.edu.iisgubbio.mobilitaProva;
 
 import it.edu.iisgubbio.mobilita.AMotore;
 import it.edu.iisgubbio.mobilita.AMuscoli;
+import it.edu.iisgubbio.mobilita.Aereo;
 import it.edu.iisgubbio.mobilita.Automobile;
 import it.edu.iisgubbio.mobilita.Bicicletta;
+import it.edu.iisgubbio.mobilita.Deltaplano;
 import it.edu.iisgubbio.mobilita.MezzoDiTrasporto;
 import it.edu.iisgubbio.mobilita.Motocicletta;
+import it.edu.iisgubbio.mobilita.Motoslitta;
 import it.edu.iisgubbio.mobilita.Skateboard;
 import it.edu.iisgubbio.mobilita.Terrestre;
+import it.edu.iisgubbio.mobilita.Volante;
 
 public class MezziRimessa {
 	public static void main(String[] args) {
@@ -22,7 +26,7 @@ public class MezziRimessa {
 		System.out.println(provaAMuscoli);
 		
 		Skateboard provaSkate;
-		provaSkate = new Skateboard(null, 340, null,90);
+		provaSkate = new Skateboard(null, 340, 90);
 		System.out.println(provaSkate);
 		
 		Bicicletta provaBici;
@@ -49,5 +53,20 @@ public class MezziRimessa {
 		System.out.println(auto);
 		auto.setPorte(5);
 		System.out.println(auto.getPorte());
+		
+		Motoslitta motoSlitta = new Motoslitta("franco", 15000, 50);
+		motoSlitta.setTemperaturaMinima(-30);
+		System.out.println(motoSlitta);
+
+		Volante aereoVolante = new Volante("Delt", 30000);
+		aereoVolante.setQuotaMassima(500);
+		System.out.println(aereoVolante);
+		
+		Deltaplano deltaplano = new Deltaplano("billy", 15000.00, 4);
+		System.out.println(deltaplano);
+		
+		Aereo aereo = new Aereo("A340");
+		aereo.setDistanzaMassima(4500);
+		System.out.println(aereo);
 	}
 }
