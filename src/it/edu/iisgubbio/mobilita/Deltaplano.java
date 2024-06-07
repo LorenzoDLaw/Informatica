@@ -1,6 +1,6 @@
 package it.edu.iisgubbio.mobilita;
 
-public class Deltaplano {
+public class Deltaplano extends MezzoDiTrasporto{
 	private int numeroPosti;
 	
 	public Deltaplano(String nome, double costo, int numeroPosti) {
